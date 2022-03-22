@@ -7,7 +7,7 @@
 }
 
 #game {
-  height: 100vh;
+  height: 80vh;
   display: grid;
   place-items: center;
 }
@@ -19,4 +19,11 @@ button {
 
 button:not(:last-child) {
   margin-right: 1rem;
+}
+
+input {
+  padding: 0.6rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: none;
 }
