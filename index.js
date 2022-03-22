@@ -1,3 +1,5 @@
+const gameResult = document.getElementById("game-result");
+
 // This function return a random choice between ROCK, PAPER OR SCISSORS for the computer
 function computerPlay() {
   const gameChoice = ["rock", "paper", "scissors"];
@@ -48,14 +50,19 @@ function decideWinner(playerChoice, computerChoice) {
       result = "Draw";
     }
   }
+
+  // update the dom with the winner of the game
+  gameResult.textContent = result;
   return [winner, result];
 }
 
 function game() {
-  for (let i = 0; i < 5; i++) {
-    let player = prompt("Choose Between Rock Paper Scissors").toLowerCase();
-    console.log(decideWinner(player, computerPlay()));
-  }
+  let gameChoiceBtns = document.querySelectorAll("button");
+  gameChoiceBtns.forEach((gameChoiceBtn) => {
+    gameChoiceBtn.addEventListener("click", () => {
+      console.log(decideWinner(gameChoiceBtn.textContent.toLowerCase(), computerPlay()));
+    });
+  });
 }
 
 game();
